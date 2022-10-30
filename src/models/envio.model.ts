@@ -12,15 +12,15 @@ export class Envio extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: true,   
   })
-  email: string;
+  Email?: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  detalle: string;
+  Detalle: string;
 
   @hasMany(() => Persona)
   personas: Persona[];

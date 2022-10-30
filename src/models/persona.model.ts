@@ -1,5 +1,4 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
-import {Rol} from './rol.model';
 import {NivelEstudio} from './nivel-estudio.model';
 
 @model()
@@ -15,60 +14,62 @@ export class Persona extends Entity {
     type: 'string',
     required: true,
   })
-  nombres: string;
+  Nombres: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  apellidos: string;
+  Apellidos: string;
 
   @property({
     type: 'number',
     required: true,
   })
-  cedula: number;
+  Identificacion: number;
 
   @property({
     type: 'number',
     required: true,
   })
-  telefono: number;
+  Telefono: number;
 
   @property({
     type: 'string',
     required: true,
   })
-  direccion: string;
+  Email: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  email: string;
+  Direccion: string;
 
   @property({
     type: 'date',
     required: true,
   })
-  fechaNacimiento: string;
+  FechaNacimiento: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  socio: string;
+  Socio: string;
+
+  @hasMany(() => NivelEstudio)
+  nivelEstudios: NivelEstudio[];
 
   @property({
     type: 'string',
   })
   revisionId?: string;
 
-  @hasMany(() => Rol)
-  rols: Rol[];
-
-  @hasMany(() => NivelEstudio)
-  nivelEstudios: NivelEstudio[];
+  @property({
+    type: 'string',
+  })
+  rolId?: string;
 
   @property({
     type: 'string',

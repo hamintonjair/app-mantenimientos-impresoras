@@ -14,13 +14,13 @@ export class Login extends Entity {
     type: 'string',
     required: true,
   })
-  detalle: string;
+  Email: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  password: string;
+  Password: string;
 
   @hasMany(() => Rol)
   rols: Rol[];

@@ -13,13 +13,13 @@ export class Repuesto extends Entity {
     type: 'string',
     required: true,
   })
-  detalle: string;
+  Detalle: string;
 
   @property({
     type: 'number',
     required: true,
   })
-  cantidad: number;
+  Cantidad: number;
 
   @property({
     type: 'string',

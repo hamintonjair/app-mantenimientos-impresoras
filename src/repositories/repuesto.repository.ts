@@ -1,6 +1,6 @@
 import {inject} from '@loopback/core';
 import {DefaultCrudRepository} from '@loopback/repository';
-import {DbMantenimientosDataSource} from '../datasources';
+import {DsMantenimientosDataSource} from '../datasources';
 import {Repuesto, RepuestoRelations} from '../models';
 
 export class RepuestoRepository extends DefaultCrudRepository<
@@ -9,7 +9,7 @@ export class RepuestoRepository extends DefaultCrudRepository<
   RepuestoRelations
 > {
   constructor(
-    @inject('datasources.dbMantenimientos') dataSource: DbMantenimientosDataSource,
+    @inject('datasources.dsMantenimientos') dataSource: DsMantenimientosDataSource,
   ) {
     super(Repuesto, dataSource);
   }

@@ -1,6 +1,6 @@
 import {inject, Getter} from '@loopback/core';
 import {DefaultCrudRepository, repository, HasManyRepositoryFactory} from '@loopback/repository';
-import {DbMantenimientosDataSource} from '../datasources';
+import {DsMantenimientosDataSource} from '../datasources';
 import {Login, LoginRelations, Rol} from '../models';
 import {RolRepository} from './rol.repository';
 
@@ -13,7 +13,7 @@ export class LoginRepository extends DefaultCrudRepository<
   public readonly rols: HasManyRepositoryFactory<Rol, typeof Login.prototype.id>;
 
   constructor(
-    @inject('datasources.dbMantenimientos') dataSource: DbMantenimientosDataSource, @repository.getter('RolRepository') protected rolRepositoryGetter: Getter<RolRepository>,
+    @inject('datasources.dsMantenimientos') dataSource: DsMantenimientosDataSource, @repository.getter('RolRepository') protected rolRepositoryGetter: Getter<RolRepository>,
   ) {
     super(Login, dataSource);
     this.rols = this.createHasManyRepositoryFactoryFor('rols', rolRepositoryGetter,);

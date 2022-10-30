@@ -1,8 +1,7 @@
 import {inject, Getter} from '@loopback/core';
 import {DefaultCrudRepository, repository, HasManyRepositoryFactory} from '@loopback/repository';
-import {DbMantenimientosDataSource} from '../datasources';
-import {Persona, PersonaRelations, Rol, NivelEstudio} from '../models';
-import {RolRepository} from './rol.repository';
+import {DsMantenimientosDataSource} from '../datasources';
+import {Persona, PersonaRelations, NivelEstudio} from '../models';
 import {NivelEstudioRepository} from './nivel-estudio.repository';
 
 export class PersonaRepository extends DefaultCrudRepository<
@@ -11,17 +10,13 @@ export class PersonaRepository extends DefaultCrudRepository<
   PersonaRelations
 > {
 
-  public readonly rols: HasManyRepositoryFactory<Rol, typeof Persona.prototype.id>;
-
   public readonly nivelEstudios: HasManyRepositoryFactory<NivelEstudio, typeof Persona.prototype.id>;
 
   constructor(
-    @inject('datasources.dbMantenimientos') dataSource: DbMantenimientosDataSource, @repository.getter('RolRepository') protected rolRepositoryGetter: Getter<RolRepository>, @repository.getter('NivelEstudioRepository') protected nivelEstudioRepositoryGetter: Getter<NivelEstudioRepository>,
+    @inject('datasources.dsMantenimientos') dataSource: DsMantenimientosDataSource, @repository.getter('NivelEstudioRepository') protected nivelEstudioRepositoryGetter: Getter<NivelEstudioRepository>,
   ) {
     super(Persona, dataSource);
     this.nivelEstudios = this.createHasManyRepositoryFactoryFor('nivelEstudios', nivelEstudioRepositoryGetter,);
     this.registerInclusionResolver('nivelEstudios', this.nivelEstudios.inclusionResolver);
-    this.rols = this.createHasManyRepositoryFactoryFor('rols', rolRepositoryGetter,);
-    this.registerInclusionResolver('rols', this.rols.inclusionResolver);
   }
 }
