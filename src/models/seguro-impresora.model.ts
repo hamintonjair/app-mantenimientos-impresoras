@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Impresora} from './impresora.model';
 
 @model()
 export class SeguroImpresora extends Entity {
@@ -33,6 +34,8 @@ export class SeguroImpresora extends Entity {
   })
   fechaVencimiento: string;
 
+  @hasMany(() => Impresora)
+  impresoras: Impresora[];
 
   constructor(data?: Partial<SeguroImpresora>) {
     super(data);

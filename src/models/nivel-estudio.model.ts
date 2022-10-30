@@ -15,6 +15,10 @@ export class NivelEstudio extends Entity {
   })
   descripcion: string;
 
+  @property({
+    type: 'string',
+  })
+  personaId?: string;
 
   constructor(data?: Partial<NivelEstudio>) {
     super(data);

@@ -21,6 +21,10 @@ export class Repuesto extends Entity {
   })
   cantidad: number;
 
+  @property({
+    type: 'string',
+  })
+  revisionId?: string;
 
   constructor(data?: Partial<Repuesto>) {
     super(data);

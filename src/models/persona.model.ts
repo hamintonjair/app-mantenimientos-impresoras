@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Rol} from './rol.model';
+import {NivelEstudio} from './nivel-estudio.model';
 
 @model()
 export class Persona extends Entity {
@@ -57,6 +59,21 @@ export class Persona extends Entity {
   })
   socio: string;
 
+  @property({
+    type: 'string',
+  })
+  revisionId?: string;
+
+  @hasMany(() => Rol)
+  rols: Rol[];
+
+  @hasMany(() => NivelEstudio)
+  nivelEstudios: NivelEstudio[];
+
+  @property({
+    type: 'string',
+  })
+  envioId?: string;
 
   constructor(data?: Partial<Persona>) {
     super(data);

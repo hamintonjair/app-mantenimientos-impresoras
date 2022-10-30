@@ -15,6 +15,10 @@ export class TipoImpresora extends Entity {
   })
   nombre: string;
 
+  @property({
+    type: 'string',
+  })
+  impresoraId?: string;
 
   constructor(data?: Partial<TipoImpresora>) {
     super(data);
