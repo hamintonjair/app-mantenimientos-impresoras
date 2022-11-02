@@ -27,6 +27,12 @@ export class Impresiones3D extends Entity {
   })
   Cantidad: number;
 
+  @property({
+    type: 'number',
+    required: true,
+  })
+  Precio: number;
+
 
   constructor(data?: Partial<Impresiones3D>) {
     super(data);

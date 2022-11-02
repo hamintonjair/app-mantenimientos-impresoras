@@ -23,6 +23,12 @@ export class Repuesto extends Entity {
 
   @property({
     type: 'string',
+    required: true,
+  })
+  Imagen: string;
+
+  @property({
+    type: 'string',
   })
   revisionId?: string;
 
