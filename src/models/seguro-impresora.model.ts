@@ -14,25 +14,25 @@ export class SeguroImpresora extends Entity {
     type: 'string',
     required: true,
   })
-  tipoSeguro: string;
+  TipoSeguro: string;
 
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  precio: number;
-
-  @property({
-    type: 'date',
-    required: true,
-  })
-  fechaActivacion: string;
+  Precio: number;
 
   @property({
     type: 'date',
     required: true,
   })
-  fechaVencimiento: string;
+  FechaActivacion: string;
+
+  @property({
+    type: 'date',
+    required: true,
+  })
+  FechaVencimiento: string;
 
   @hasMany(() => Impresora)
   impresoras: Impresora[];

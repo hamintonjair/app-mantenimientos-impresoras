@@ -1,40 +1,46 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class Impresion3D extends Entity {
+export class Impresiones3D extends Entity {
   @property({
     type: 'string',
     id: true,
     generated: true,
   })
-  id?: string;
+  Id?: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  cliente: string;
+  Cliente: string;
 
   @property({
     type: 'number',
     required: true,
   })
-  identificacion: number;
+  Identificacion: number;
 
   @property({
     type: 'number',
     required: true,
   })
-  cantidad: number;
+  Cantidad: number;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  Precio: number;
 
 
-  constructor(data?: Partial<Impresion3D>) {
+  constructor(data?: Partial<Impresiones3D>) {
     super(data);
   }
 }
 
-export interface Impresion3DRelations {
+export interface Impresiones3DRelations {
   // describe navigational properties here
 }
 
-export type Impresion3DWithRelations = Impresion3D & Impresion3DRelations;
+export type Impresiones3DWithRelations = Impresiones3D & Impresiones3DRelations;

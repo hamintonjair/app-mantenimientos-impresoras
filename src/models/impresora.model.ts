@@ -14,61 +14,61 @@ export class Impresora extends Entity {
     type: 'string',
     required: true,
   })
-  nombre: string;
+  Nombre: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  marca: string;
+  Marca: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  placa: string;
+  Placa: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  anioModelo: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  velocidadImp: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  volumenImp: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  paisOrigen: string;
+  Pais: string;
 
   @property({
     type: 'date',
     required: true,
   })
-  fechaMantenimiento: string;
+  AnoModelo: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  detalles: string;
+  Velocidadimpresion: string;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  VolumenImpresion: number;
+
+  @property({
+    type: 'date',
+    required: true,
+  })
+  FechaMantenimiento: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  caracteristicas: string;
+  Datelle: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  OtrasCaracteristicas: string;
 
   @hasMany(() => TipoImpresora)
   tipoImpresoras: TipoImpresora[];

@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Persona} from './persona.model';
 
 @model()
 export class Rol extends Entity {
@@ -13,18 +14,16 @@ export class Rol extends Entity {
     type: 'string',
     required: true,
   })
-  nombre: string;
+  Nombre: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  password: string;
+  Password: string;
 
-  @property({
-    type: 'string',
-  })
-  personaId?: string;
+  @hasMany(() => Persona)
+  personas: Persona[];
 
   @property({
     type: 'string',

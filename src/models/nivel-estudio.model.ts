@@ -13,7 +13,7 @@ export class NivelEstudio extends Entity {
     type: 'string',
     required: true,
   })
-  descripcion: string;
+  Nombre: string;
 
   @property({
     type: 'string',

@@ -13,7 +13,7 @@ export class TipoImpresora extends Entity {
     type: 'string',
     required: true,
   })
-  nombre: string;
+  Nombre: string;
 
   @property({
     type: 'string',

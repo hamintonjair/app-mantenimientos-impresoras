@@ -1,7 +1,7 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
 import {Impresora} from './impresora.model';
-import {Repuesto} from './repuesto.model';
 import {Persona} from './persona.model';
+import {Repuesto} from './repuesto.model';
 
 @model()
 export class Revision extends Entity {
@@ -16,46 +16,46 @@ export class Revision extends Entity {
     type: 'number',
     required: true,
   })
-  precio: number;
+  Valor: number;
 
   @property({
     type: 'string',
     required: true,
   })
-  detalles: string;
+  Datalles: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  actualizacion: string;
+  Actualizacion: string;
+
+  @property({
+    type: 'date',
+    required: true,
+  })
+  FechaRevision: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  revision: string;
+  TipoRevision: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  fechaRevision: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  estado: string;
+  Estado: string;
 
   @hasMany(() => Impresora)
   impresoras: Impresora[];
 
-  @hasMany(() => Repuesto)
-  repuestos: Repuesto[];
-
   @hasMany(() => Persona)
   personas: Persona[];
+
+  @hasMany(() => Repuesto)
+  repuestos: Repuesto[];
 
   constructor(data?: Partial<Revision>) {
     super(data);
