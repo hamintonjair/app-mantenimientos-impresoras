@@ -58,6 +58,12 @@ export class Persona extends Entity {
   })
   Socio: string;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  NivelEstudios: string;
+
   @hasMany(() => NivelEstudio)
   nivelEstudios: NivelEstudio[];
 

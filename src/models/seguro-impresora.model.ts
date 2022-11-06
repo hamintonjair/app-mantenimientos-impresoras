@@ -14,6 +14,12 @@ export class SeguroImpresora extends Entity {
     type: 'string',
     required: true,
   })
+  Impresora: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
   TipoSeguro: string;
 
   @property({
