@@ -7,5 +7,4 @@ export * from './repuesto.repository';
 export * from './revision.repository';
 export * from './rol.repository';
 export * from './seguro-impresora.repository';
-export * from './tipo-impresora.repository';
 export * from './impresora.repository';

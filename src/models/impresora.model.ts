@@ -1,5 +1,4 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
-import {TipoImpresora} from './tipo-impresora.model';
 
 @model()
 export class Impresora extends Entity {
@@ -44,6 +43,12 @@ export class Impresora extends Entity {
     type: 'string',
     required: true,
   })
+  TipoImpresora: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
   Velocidadimpresion: string;
 
   @property({
@@ -56,22 +61,15 @@ export class Impresora extends Entity {
     type: 'date',
     required: true,
   })
-  FechaMantenimiento: string;
+  FechaIngreso: string;
+
 
   @property({
     type: 'string',
     required: true,
   })
-  Datelle: string;
+  Datalles: string;
 
-  @property({
-    type: 'string',
-    required: true,
-  })
-  OtrasCaracteristicas: string;
-
-  @hasMany(() => TipoImpresora)
-  tipoImpresoras: TipoImpresora[];
 
   @property({
     type: 'string',

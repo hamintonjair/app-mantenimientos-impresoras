@@ -1,4 +1,3 @@
-export * from './tipo-impresora.model';
 export * from './seguro-impresora.model';
 export * from './impresiones-3-d.model';
 export * from './repuesto.model';
