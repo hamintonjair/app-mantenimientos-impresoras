@@ -1,3 +1,4 @@
+import { service } from '@loopback/core';
 import {
   Count,
   CountSchema,
@@ -19,11 +20,14 @@ import {
 } from '@loopback/rest';
 import {Rol} from '../models';
 import {RolRepository} from '../repositories';
+import {UtilidadesService} from '../services';
 
 export class RolController {
   constructor(
     @repository(RolRepository)
     public rolRepository : RolRepository,
+    @service(UtilidadesService)
+    public utilidadesService : UtilidadesService
   ) {}
 
   @post('/rols')
@@ -44,6 +48,10 @@ export class RolController {
     })
     rol: Omit<Rol, 'id'>,
   ): Promise<Rol> {
+
+    // rol.Password = this.utilidadesService.generarPassword();
+    rol.Password = this.utilidadesService.encriptar(rol.Password);
+
     return this.rolRepository.create(rol);
   }
 

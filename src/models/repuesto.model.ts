@@ -22,6 +22,12 @@ export class Repuesto extends Entity {
   Cantidad: number;
 
   @property({
+    type: 'number',
+    required: true,
+  })
+  Precio: number;
+
+  @property({
     type: 'string',
     required: true,
   })

@@ -68,7 +68,7 @@ export class Impresora extends Entity {
     type: 'string',
     required: true,
   })
-  Datalles: string;
+  Detalles: string;
 
 
   @property({

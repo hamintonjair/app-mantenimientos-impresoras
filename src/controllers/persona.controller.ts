@@ -1,3 +1,4 @@
+import { service } from '@loopback/core';
 import {
   Count,
   CountSchema,
@@ -20,10 +21,12 @@ import {
 import {Persona} from '../models';
 import {PersonaRepository} from '../repositories';
 
+
 export class PersonaController {
   constructor(
     @repository(PersonaRepository)
     public personaRepository : PersonaRepository,
+   
   ) {}
 
   @post('/personas')
@@ -44,6 +47,7 @@ export class PersonaController {
     })
     persona: Omit<Persona, 'id'>,
   ): Promise<Persona> {
+
     return this.personaRepository.create(persona);
   }
 

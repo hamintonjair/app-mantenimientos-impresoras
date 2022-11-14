@@ -22,6 +22,12 @@ export class Rol extends Entity {
   })
   Password: string;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  Rol: string;
+
   @hasMany(() => Persona)
   personas: Persona[];
 
