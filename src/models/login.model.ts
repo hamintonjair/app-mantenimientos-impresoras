@@ -14,7 +14,7 @@ export class Login extends Entity {
     type: 'string',
     required: true,
   })
-  Email: string;
+  Rol: string;
 
   @property({
     type: 'string',

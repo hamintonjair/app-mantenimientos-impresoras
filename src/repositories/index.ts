@@ -8,3 +8,4 @@ export * from './revision.repository';
 export * from './rol.repository';
 export * from './seguro-impresora.repository';
 export * from './impresora.repository';
+export * from './permisos.repository';

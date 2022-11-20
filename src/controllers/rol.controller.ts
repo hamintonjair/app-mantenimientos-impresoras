@@ -1,3 +1,4 @@
+import { Persona } from './../models/persona.model';
 import { service } from '@loopback/core';
 import {
   Count,
@@ -17,6 +18,7 @@ import {
   del,
   requestBody,
   response,
+  HttpErrors,
 } from '@loopback/rest';
 import {Rol} from '../models';
 import {RolRepository} from '../repositories';
@@ -29,6 +31,33 @@ export class RolController {
     @service(UtilidadesService)
     public utilidadesService : UtilidadesService
   ) {}
+
+
+  @post('/logins')
+  @response(200, {
+    description: 'Usuario logueado con exito'
+  })
+  async login(
+    @requestBody() rol : Rol
+  ){
+    
+    let persona = await this.utilidadesService.loginAsync( rol.Rol, rol.Password );
+
+    if( persona ){     
+      
+      return {
+        data : {
+          id : rol.id,
+          Nombre : rol.Nombre,
+          Password : rol.Password,
+          Rol: rol.Rol          
+        },      
+      }
+    }else{
+      throw new HttpErrors[401]('Usuario no autorizado')      
+    }
+
+  }
 
   @post('/rols')
   @response(200, {
@@ -50,7 +79,7 @@ export class RolController {
   ): Promise<Rol> {
 
     // rol.Password = this.utilidadesService.generarPassword();
-    rol.Password = this.utilidadesService.encriptar(rol.Password);
+    // rol.Password = this.utilidadesService.encriptar(rol.Password);
 
     return this.rolRepository.create(rol);
   }
@@ -81,6 +110,7 @@ export class RolController {
   async find(
     @param.filter(Rol) filter?: Filter<Rol>,
   ): Promise<Rol[]> {
+    
     return this.rolRepository.find(filter);
   }
 

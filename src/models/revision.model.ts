@@ -13,6 +13,24 @@ export class Revision extends Entity {
   id?: string;
 
   @property({
+    type: 'string',
+    required: true,
+  })
+  Tecnico: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  Impresora: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  Repuesto: string;
+
+  @property({
     type: 'number',
     required: true,
   })
@@ -47,6 +65,13 @@ export class Revision extends Entity {
     required: true,
   })
   Estado: string;
+
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  Email: string;
 
   @hasMany(() => Impresora)
   impresoras: Impresora[];

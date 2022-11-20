@@ -16,3 +16,4 @@ export * from './revision-repuesto.controller';
 export * from './rol-persona.controller';
 export * from './envio-persona.controller';
 export * from './login-rol.controller';
+export * from './permisos.controller';

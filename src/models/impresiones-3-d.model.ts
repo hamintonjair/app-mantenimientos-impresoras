@@ -28,6 +28,12 @@ export class Impresiones3D extends Entity {
   Cantidad: number;
 
   @property({
+    type: 'string',
+    required: true,
+  })
+  TipoImpre: string;
+
+  @property({
     type: 'number',
     required: true,
   })

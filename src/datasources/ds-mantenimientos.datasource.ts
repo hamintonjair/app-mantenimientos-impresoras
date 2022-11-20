@@ -1,5 +1,6 @@
 import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
+import legacy from 'loopback-datasource-juggler';
 
 const config = {
   name: 'dsMantenimientos',

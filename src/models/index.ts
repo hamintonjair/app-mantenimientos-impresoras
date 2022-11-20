@@ -8,3 +8,4 @@ export * from './persona.model';
 export * from './login.model';
 export * from './envio.model';
 export * from './impresora.model';
+export * from './permisos.model';

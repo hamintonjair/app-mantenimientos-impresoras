@@ -19,6 +19,18 @@ export class Impresora extends Entity {
     type: 'string',
     required: true,
   })
+  Cliente: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  Correo: string;
+  
+  @property({
+    type: 'string',
+    required: true,
+  })
   Marca: string;
 
   @property({

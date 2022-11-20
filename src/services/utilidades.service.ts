@@ -35,7 +35,7 @@ export class UtilidadesService {
     return desencriptado;
   }
 
-  //Version 1.0
+
   login( Rol: string, Password : string){
     
     try {
@@ -54,31 +54,31 @@ export class UtilidadesService {
     
   }
 
-  // async loginAsync( correo : string, password : string){
+  async loginAsync( Rol : string, Password : string){
 
-  //   try {
-  //     let persona = await this.personaRepository.findOne( {
-  //       where : { correo: correo }
-  //      })
+    try {
+      let rol = await this.rolRepository.findOne( {
+        where : { Rol: Rol }
+       })
 
-  //     if(persona != null){
+      if(rol != null){
         
-  //       let descriptado = this.desencriptar( persona.password );
+        let descriptado = this.desencriptar( rol.Password );
 
-  //       if( descriptado == password ){
-  //         return persona;
-  //       }else{
-  //         return false;
-  //       }
+        if( descriptado == Password ){
+          return rol;
+        }else{
+          return false;
+        }
 
-  //     }else{
-  //       return false;
-  //     }
-  //   } catch (error) {
-  //     return false; 
-  //   }
+      }else{
+        return false;
+      }
+    } catch (error) {
+      return false; 
+    }
 
-  // }
+  }
 
   // GenerarTokenJWT( persona : Persona){
 
